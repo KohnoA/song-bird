@@ -22,7 +22,9 @@ const tryAgainButton = document.querySelector('.end-page__button');
 const resultScoreNode = document.querySelector('.result__score');
 const resultAgain = document.querySelector('.result__again');
 
-function returnStartPage() {
+function returnStartPage(event) {
+  event.preventDefault();
+
   startSection.classList.remove('hidden');
   footerApplication.classList.remove('hidden');
   gameSection.classList.add('hidden');
@@ -41,7 +43,9 @@ function returnStartPage() {
   nextButton.classList.remove('game-page__button_next');
 }
 
-function startGame() {
+function startGame(event) {
+  event.preventDefault();
+
   if (!gameLink.classList.contains('navigation__item_active')) {
     startSection.classList.add('hidden');
     footerApplication.classList.add('hidden');
