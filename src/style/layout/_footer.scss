@@ -1,0 +1,55 @@
+.footer {
+    flex: 0 0 auto;
+}
+
+.footer__rsschool-link {
+    opacity: 0.7;
+    transition: .2s;
+    &:hover {
+        opacity: 1;
+    }
+    &:active {
+        transform: scale(0.95);
+        opacity: .5;
+    }
+}
+
+.footer__date-creating {
+    margin-left: 40px;
+    opacity: 0.8;
+    cursor: default;
+}
+
+.footer__github-link {
+    display: block;
+    align-self: flex-end;
+    margin-left: 40px;
+    opacity: 0.7;
+    transition: .2s;
+    &:hover {
+        opacity: 1;
+    }
+    &:active {
+        transform: scale(0.95);
+        opacity: .5;
+    }
+}
+
+.language {
+    flex-shrink: 0;
+    width: 40px;
+    color: $mainFontColor;
+    font-size: 1.3em;
+    background-color: transparent;
+    border: none;
+    opacity: .7;
+    transition: .2s;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
+    &:active {
+        transform: scale(0.95);
+        opacity: .5;
+    }
+}

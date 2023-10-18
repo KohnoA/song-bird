@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Bird</title>
+    <link rel="icon" href="./assets/favicon.ico" type="image/ico">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="layout-2-columns">
+                <div class="logo">
+                    <img src="./assets/icons/song-bird-logo.svg" alt="logo Song Bird" class="logo__image">
+                </div>
+    
+                <nav class="navigation">
+                    <ul class="navigation__list">
+                        <li id="navigation-home-link" class="navigation__item navigation__item_active">
+                            <a href="#" class="navigation__link" data-i18="home-link1">Домой</a>
+                        </li>
+                        <li id="navigation-game-link" class="navigation__item">
+                            <a href="#" class="navigation__link" data-i18="home-link2">Игра</a>
+                        </li>
+                    </ul>
+                    <p class="score"><span data-i18="score">Очки</span>: <span class="score__integer">0</span></p>
+                </nav>
+            </div>
+    
+            <ul class="topic__list">
+                <li class="topic__item topic__item_active">
+                    <a href="#" class="topic__link" data-i18="stage-link1">Разминка</a>
+                </li>
+                <li class="topic__item">
+                    <a href="#" class="topic__link" data-i18="stage-link2">Воробьиные</a>
+                </li>
+                <li class="topic__item">
+                    <a href="#" class="topic__link" data-i18="stage-link3">Лесные птицы</a>
+                </li>
+                <li class="topic__item">
+                    <a href="#" class="topic__link" data-i18="stage-link4">Певчие птицы</a>
+                </li>
+                <li class="topic__item">
+                    <a href="#" class="topic__link" data-i18="stage-link5">Хищные птицы</a>
+                </li>
+                <li class="topic__item">
+                    <a href="#" class="topic__link" data-i18="stage-link6">Морские птицы</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="visually-hidden application-title">Song bird</h1>
+            <section class="start-page">
+                <div class="greeting block-item">
+                    <h2 class="greeting__title title" data-i18="greeting-title">Добро пожаловать в игру Song Bird!</h2>
+                    <p class="greeting__description" data-i18="greeting-subtitle">Попробуй угадать птицу по ее пению</p>
+                    <p class="greeting__rules-title" data-i18="rules-title">Правила игры:</p>
+                    <ul class="greeting__rules-list">
+                        <li class="greeting__rule-item" data-i18="rule1">Прослушайте голос птицы.</li>
+                        <li class="greeting__rule-item" data-i18="rule2">Выберете вариант с названием птицы.</li>
+                        <li class="greeting__rule-item" data-i18="rule3">Если ответ верный - вы получаете 5 баллов. Если нет,
+                            то с каждой последующей попыткой результат уменьшается на 1 балл.
+                        </li>
+                        <li class="greeting__rule-item" data-i18="rule4">После нахождения верного ответа, переходите к 
+                            следующиму вопросу.
+                        </li>
+                        <li class="greeting__rule-item" data-i18="rule5">По окончанию игры выведется итоговый результат.</li>
+                    </ul>
+                </div>
+                <button id="start-button" class="start-page__button button" type="button" data-i18="start-button">Вперед!</button>
+            </section>
+
+            <section class="game-page hidden">
+                <div class="unknown-bird block-item">
+                    <img id="unknown-bird-image" src="./assets/images/unknown-bird.jpg" alt="Unknown bird" class="unknown-bird__image">
+                    <div class="unknown-bird__parametrs">
+                        <p id="unknown-bird-name" class="unknown-bird__name">******</p>
+
+                        <div class="audio-player">
+                            <audio id="audio-player-riddle" src="#" hidden></audio>
+                            <div class="controls">
+                                <div class="playback-button"></div>
+                                <div class="timebar">
+                                    <input id="volume-range" class="timebar__volume" type="range" max="100" value="0">
+                                    <input id="progress-range" class="timebar__range timebar__bar" type="range" value="0" max="100">
+                                    <div class="timebar__time-info layout-2-columns">
+                                        <div class="timebar__current-time"></div>
+                                        <div class="timebar__total-time"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="game-page__answer layout-2-columns">
+                    <div class="answers-options block-item"></div>
+                    <div class="answer-current block-item">
+                        <p class="instruction" data-i18="instruction">Послушайте плеер и выбрете птицу из списка.</p>
+                        <div class="current-bird hidden">
+                            <div class="current-bird__wrapper layout-2-columns">
+                                <img class="current-bird__image" src="./assets/images/unknown-bird.jpg" alt="current bird">
+                                <ul class="current-bird__list">
+                                    <li class="current-bird__item">
+                                        <h4 class="current-bird__name"></h4>
+                                    </li>
+                                    <li class="current-bird__item">
+                                        <span class="current-bird__name-latin"></span>
+                                    </li>
+                                    <li class="current-bird__item">
+
+                                        <div class="audio-player">
+                                            <audio id="audio-player-current" src="#" hidden></audio>
+                                            <div class="controls">
+                                                <div id="current-bird-play" class="playback-button"></div>
+                                                <div class="timebar timerbar-current">
+                                                    <input id="volume-range-current" class="timebar__volume" type="range" max="100" value="0">
+                                                    <input id="progress-range-current" class="timebar__range timebar__bar" type="range" value="0" max="100">
+                                                    <div class="timebar__time-info layout-2-columns">
+                                                        <div class="timebar__current-time timebar__current-time_cur">00:00</div>
+                                                        <div class="timebar__total-time timebar__total-time_cur">00:00</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <p class="current-bird__description"></p>
+                        </div>
+                    </div>
+                </div>
+                <button class="game-page__button button" type="button" data-i18="next-button">Следующая птица</button>
+            </section>
+
+            <section class="end-page hidden">
+                <div class="result block-item">
+                    <h2 class="result__title title" data-i18="result-title">Поздравляем!</h2>
+                    <p class="result__description"><span data-i18="result-score1">Вы прошли викторину и набрали</span> <span class="result__score">0</span> <span data-i18="result-score2">из 30 возможных баллов.</span></p>
+                    <p class="result__again hidden" data-i18="try-again">Попробуйте еще раз!</p>
+                </div>
+                <button class="end-page__button button" type="button" data-i18="result-button">Повторить!</button>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="layout-2-columns">
+                <div class="layout-2-columns">
+                    <a href="https://rs.school/js/" class="footer__rsschool-link">
+                        <img src="./assets/icons/rsschool-logo.svg" alt="RSSchool" class="footer__rsschool-image">
+                    </a>
+                    <p class="footer__date-creating">2022</p>
+                </div>
+                <div class="layout-2-columns">
+                    <button class="language">RU</button>
+                    <a href="https://github.com/KohnoA" class="footer__github-link">
+                        <img src="./assets/icons/github-logo.svg" alt="GitHub" class="footer__github-image">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
