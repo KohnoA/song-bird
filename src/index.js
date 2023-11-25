@@ -1,6 +1,0 @@
-import './style/index.scss'
-import './js/translate'
-import './js/start-finish'
-import './js/shuffle'
-import './js/audioplayer'
-import './js/audioplayer-current'
